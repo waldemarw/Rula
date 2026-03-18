@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Rapid Upper Limb Assessment Software (RULA) | Assessment | Osmond Ergonomics</title>
+	<!-- meta -->
+	<meta charset="utf-8">
+	<meta name="description" content="RULA is a screening tool that assesses biomechanical and postural loading on the whole body with particular attention to the neck, trunk and upper limbs.">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="media/osmond_cube.ico">
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/assessment.css">
+	<link rel="stylesheet" type="text/css" href="css/assessment-lr.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-158297410-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-158297410-2');
+	</script>
+
+</head>
+<body>
+	<div class="zone navbar">
+		<div></div>
+		<div class="logo" id="osmond-logo">
+			<a href="index.html">
+				<img src="media/Osmond-Ergonomics.svg" alt="Osmond Ergonomics Logo" width="150" height="80"></a>
+<!-- 				<button type="button" id="modal-btn" class="btn btn-primary" data-toggle="modal" data-target="#results-modal">
+					Modal
+				</button> -->
+			</div>
+			<div class="about">
+				<!-- dropdown menu -->
+				<div class="btn-group">
+					<button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="button-text">Learn more</span>
+					</button>
+					<div class="dropdown-menu dropdown-menu-right animated flipInX">
+						<button class="dropdown-item" type="button"><a href="about.html">About RULA</a></button>
+						<button class="dropdown-item" type="button"><a href="https://www.ergonomics.co.uk/contact_osmond_ergonomics.html" target="_blank">Contact us</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main>
+			<div class="empty-row"></div>
+			<!-- bootstrap card -->
+			<div class="card main-card animated fadeIn">
+				<div class="card-header main-header">
+					<h2 id="title" class="text-center">Rapid Upper Limb Assessment (Right & Left Side)</h2>
+				</div>
+				<div class="card-header">
+					<ul class="nav nav-tabs card-header-tabs" id="question-list" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="nav1" href="#step-1" role="tab" aria-controls="step-1" aria-selected="true" alt="Step 1: Locate Upper Arm Position" data-toggle="tooltip" data-placement="top" title="Right: Upper Arm">1</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav2" href="#step-2" role="tab" aria-controls="step-2" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Right: Lower Arm">2</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav3" href="#step-3" role="tab" aria-controls="step-3" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Right: Wrist">3</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav4" href="#step-4" role="tab" aria-controls="step-4" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Right: Wrist Twist">4</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" id="nav5" href="#step-5" role="tab" aria-controls="step-5" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Right: Arm & Wrist - Muscle Use & Force">5</a>
+						</li>
+
+
+
+						<li class="nav-item">
+							<a class="nav-link" id="nav6" href="#step-6" role="tab" aria-controls="step-6" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Left: Upper Arm">6</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav7" href="#step-7" role="tab" aria-controls="step-7" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Left: Lower Arm">7</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav8" href="#step-8" role="tab" aria-controls="step-8" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Left: Wrist">8</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav9" href="#step-9" role="tab" aria-controls="step-9" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Left: Wrist Twist">9</a>
+						</li>
+
+
+
+						<li class="nav-item">
+							<a class="nav-link" id="nav10" href="#step-10" role="tab" aria-controls="step-10" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Arm & Wrist - Muscle Use & Force">10</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav11" href="#step-11" role="tab" aria-controls="step-11" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Neck">11</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav12" href="#step-12" role="tab" aria-controls="step-12" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Trunk">12</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav13" href="#step-13" role="tab" aria-controls="step-13" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Legs">13</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav14" href="#step-14" role="tab" aria-controls="step-14" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Neck, Trunk & Leg - Muscle Use & Force">14</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="nav15" href="#step-15" role="tab" aria-controls="step-15" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Personal Details">15</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link hide" id="nav16" href="#step-16" role="tab" aria-controls="step-16" aria-selected="false" data-toggle="tooltip" data-placement="top" title="Results"><img src="media/icons/calc.png" alt="results" height="16px;"></a>
+						</li>
+					</ul>
+				</div>
+				<div class="card-body main-card-body">
+					<div class="tab-content mt-3">
+
+						<div class="tab-pane active" id="step-1" role="tabpanel">
+							<!-- step one start -->
+							<div id="question-one" class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q1" class="text-center">Step 1: Locate Upper Arm Position (Right)</h3></div>
+
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q1" class="radio option-input" value="1" id="radio1-q1">
+										<label for="radio1-q1" class="radioImg img">
+											<img src="media/Q1/upperarm1.jpg" alt="upperarm" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q1" class="radio option-input" value="2" id="radio2-q1">
+										<label for="radio2-q1" class="radioImg img">
+											<img src="media/Q1/upperarm2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q1" class="radio option-input" value="2" id="radio3-q1">
+										<label for="radio3-q1" class="radioImg img">
+											<img src="media/Q1/upperarm3.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q1" class="radio option-input" value="3" id="radio4-q1">
+										<label for="radio4-q1" class="radioImg img">
+											<img src="media/Q1/upperarm4.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q1" class="radio option-input" value="4" id="radio5-q1">
+										<label for="radio5-q1" class="radioImg img">
+											<img src="media/Q1/upperarm5.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q1"  class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-question" style="margin-top: 10px">Step 1a: Also tick the following boxes if appropriate</h3>
+									<div id="checkbox-q1" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q1" id="customCheck1-q1" value="1">
+											<label class="custom-control-label" for="customCheck1-q1">
+												Shoulder is raised
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q1" id="customCheck2-q1" value="1">
+											<label class="custom-control-label" for="customCheck2-q1">
+												Upper arm is abducted (away from the side of the body)
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q1" id="customCheck3-q1" value="-1">
+											<label class="custom-control-label" for="customCheck3-q1">
+												Leaning or supporting the weight of the arm
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step one end -->
+						</div>
+
+						<div class="tab-pane" id="step-2" role="tabpanel" aria-labelledby="step-2-tab">  
+							<!-- step two start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q2" class="text-center">Step 2: Locate Lower Arm Position (Right)</h3></div>
+
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q2" class="radio option-input" value="1" id="radio1-q2">
+										<label for="radio1-q2" class="radioImg img">
+											<img src="media/Q2/lowerarm1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q2" class="radio option-input" value="2" id="radio2-q2">
+										<label for="radio2-q2" class="radioImg img">
+											<img src="media/Q2/lowerarm2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q2" class="radio option-input" value="2" id="radio3-q2">
+										<label for="radio3-q2" class="radioImg img">
+											<img src="media/Q2/lowerarm3.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q2"  class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-question" style="margin-top: 10px">Step 2a: Also tick the following box if appropriate</h3>
+									<div id="checkbox-q2" class="checkbox custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" name="customCheck-q2" id="customCheck1-q2" value="1">
+										<label class="custom-control-label" for="customCheck1-q2">
+											Is either arm working across midline or out to side of body?<br>
+											<img src="media/Q2/lowerarm4.jpg" alt="" class="checkbox-img">
+										</label>
+									</div>
+								</div>
+							</div>
+							<!-- step two end -->
+						</div>
+
+						<div class="tab-pane" id="step-3" role="tabpanel" aria-labelledby="step-3-tab">
+							<!-- step three start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q3" class="text-center">Step 3: Locate Wrist Position (Right)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q3" class="radio option-input" value="1" id="radio1-q3">
+										<label for="radio1-q3" class="radioImg img">
+											<img src="media/Q3/wrist1.jpg" alt="wrist 0 degrees" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q3" class="radio option-input" value="2" id="radio2-q3">
+										<label for="radio2-q3" class="radioImg img">
+											<img src="media/Q3/wrist2.jpg" alt="wrist 15 down to 15 up degrees" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q3" class="radio option-input" value="3" id="radio3-q3">
+										<label for="radio3-q3" class="radioImg img">
+											<img src="media/Q3/wrist3.jpg" alt="wrist 15 degrees down" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q3" class="radio option-input" value="3" id="radio4-q3">
+										<label for="radio4-q3" class="radioImg img">
+											<img src="media/Q3/wrist4.jpg" alt="wrist 15 degrees up" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q3" class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-question-three" style="margin-top: 10px">Step 3a: Also tick the following box if appropriate</h3>
+
+									<div id="checkbox-q3" class="checkbox custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" name="customCheck-q3" id="customCheck1-q3" value="1">
+										<label class="custom-control-label" for="customCheck1-q3">
+											Is wrist bent away from midline?
+											<img src="media/Q3/wrist5.jpg" alt="lowerarm midline or out to side" class="checkbox-img">
+										</label>
+									</div>
+								</div>
+							</div>
+							<!-- step three end -->
+
+						</div>
+
+						<div class="tab-pane" id="step-4" role="tabpanel" aria-labelledby="step-4-tab">
+							<!-- step four start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q4" class="text-center">Step 4: Wrist Twist (Right)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q4" class="radio option-input" value="1" id="radio1-q4">
+										<label for="radio1-q4" class="radioImg img">
+											<img src="media/Q4/wrist_twist1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q4" class="radio option-input" value="2" id="radio2-q4">
+										<label for="radio2-q4" class="radioImg img">
+											<img src="media/Q4/wrist_twist2.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q4" style="text-align: center;">
+									<div id="checkbox-q4" class="checkbox"></div>
+								</div>
+							</div>
+							<!-- step four end -->
+						</div>
+
+
+
+
+						<div class="tab-pane" id="step-5" role="tabpanel" aria-labelledby="step-5-tab">
+							<!-- step 5 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q5" class="text-center">Step 5: Arm & wrist - select the force and load that most reflects the working situation (Right)</h3></div>
+								<div class="answer-grid">
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q5" class="radio option-input" value="0" id="radio1-q5">
+										<label for="radio1-q5">
+											<ul>
+												<h5><strong>Score 0</strong></h5>
+												<li>No resistance</li>
+												<li>Less than 2 kg intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q5" class="radio option-input" value="1" id="radio2-q5">
+										<label for="radio2-q5">
+											<ul>
+												<h5><strong>Score 1</strong></h5>
+												<li>2 - 10 kg intermittent load or force</li>
+												<h2 style="visibility: hidden;">#</h2>
+											</ul>
+										</label>
+									</span>
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q5" class="radio option-input" value="2" id="radio3-q5">
+										<label for="radio3-q5">
+											<ul>
+												<h5><strong>Score 2</strong></h5>
+												<li>2 - 10 kg static load</li>
+												<li>2 - 10 kg repeated loads or forces</li>
+												<li>10 kg or more, intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q5" class="radio option-input" value="3" id="radio4-q5">
+										<label for="radio4-q5">
+											<ul>
+												<h5><strong>Score 3</strong></h5>
+												<li>More than 10 kg static load</li>
+												<li>10+ kg repeated loads or forces</li>
+												<li>Shock or forces with rapid buildup</li>
+											</ul>
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q5" class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-q5" style="margin-top: 10px">Step 5a: Select this box if it reflects your muscle use</h3>
+									<div id="checkbox-q5" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q5" id="customCheck-q5" value="1">
+											<label class="custom-control-label" for="customCheck-q5">
+												<ul class="checkBoxList">
+													<h5><strong>Score 1</strong></h5>
+													Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.
+												</ul>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 5 end -->
+						</div>
+
+
+						<div class="tab-pane" id="step-6" role="tabpanel" aria-labelledby="step-6-tab">
+							<!-- step five start -->
+							<div id="question-six" class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q6" class="text-center">Step 6: Locate Upper Arm Position (Left)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q6" class="radio option-input" value="1" id="radio1-q6">
+										<label for="radio1-q6" class="radioImg img">
+											<img src="media/left-side/Q1/upperarm1.jpg" alt="upperarm" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q6" class="radio option-input" value="2" id="radio2-q6">
+										<label for="radio2-q6" class="radioImg img">
+											<img src="media/left-side/Q1/upperarm2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q6" class="radio option-input" value="2" id="radio3-q6">
+										<label for="radio3-q6" class="radioImg img">
+											<img src="media/left-side/Q1/upperarm3.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q6" class="radio option-input" value="3" id="radio4-q6">
+										<label for="radio4-q6" class="radioImg img">
+											<img src="media/left-side/Q1/upperarm4.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q6" class="radio option-input" value="4" id="radio5-q6">
+										<label for="radio5-q6" class="radioImg img">
+											<img src="media/left-side/Q1/upperarm5.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q6"  class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-question" style="margin-top: 10px">Step 6a: Also tick the following boxes if appropriate</h3>
+									<div id="checkbox-q6" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q6" id="customCheck1-q6" value="1">
+											<label class="custom-control-label" for="customCheck1-q6">
+												Shoulder is raised
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q6" id="customCheck2-q6" value="1">
+											<label class="custom-control-label" for="customCheck2-q6">
+												Upper arm is abducted (away from the side of the body)
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q6" id="customCheck3-q6" value="-1">
+											<label class="custom-control-label" for="customCheck3-q6">
+												Leaning or supporting the weight of the arm
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 6 end -->
+						</div>
+
+						<div class="tab-pane" id="step-7" role="tabpanel" aria-labelledby="step-7-tab">  
+							<!-- step 7 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q7" class="text-center">Step 7: Locate Lower Arm Position (Left)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q7" class="radio option-input" value="1" id="radio1-q7">
+										<label for="radio1-q7" class="radioImg img">
+											<img src="media/left-side/Q2/lowerarm1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q7" class="radio option-input" value="2" id="radio2-q7">
+										<label for="radio2-q7" class="radioImg img">
+											<img src="media/left-side/Q2/lowerarm2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q7" class="radio option-input" value="2" id="radio3-q7">
+										<label for="radio3-q7" class="radioImg img">
+											<img src="media/left-side/Q2/lowerarm3.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q7"  class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-question" style="margin-top: 10px">Step 7a: Also tick the following box if appropriate</h3>
+									<div id="checkbox-q7" class="checkbox custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" name="customCheck-q7" id="customCheck1-q7" value="1">
+										<label class="custom-control-label" for="customCheck1-q7">
+											Is either arm working across midline or out to side of body?<br>
+											<img src="media/left-side/Q2/lowerarm4.jpg" alt="" class="checkbox-img">
+										</label>
+									</div>
+								</div>
+							</div>
+							<!-- step 7 end -->
+						</div>
+
+						<div class="tab-pane" id="step-8" role="tabpanel" aria-labelledby="step-8-tab">
+							<!-- step 8 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q8" class="text-center">Step 8: Locate Wrist Position (Left)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q8" class="radio option-input" value="1" id="radio1-q8">
+										<label for="radio1-q8" class="radioImg img">
+											<img src="media/left-side/Q3/wrist1.jpg" alt="wrist 0 degrees" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q8" class="radio option-input" value="2" id="radio2-q8">
+										<label for="radio2-q8" class="radioImg img">
+											<img src="media/left-side/Q3/wrist2.jpg" alt="wrist 15 down to 15 up degrees" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q8" class="radio option-input" value="3" id="radio3-q8">
+										<label for="radio3-q8" class="radioImg img">
+											<img src="media/left-side/Q3/wrist3.jpg" alt="wrist 15 degrees down" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q8" class="radio option-input" value="3" id="radio4-q8">
+										<label for="radio4-q8" class="radioImg img">
+											<img src="media/left-side/Q3/wrist4.jpg" alt="wrist 15 degrees up" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q8" class="optional-fields hide" style="text-align: center;">
+									<h3 style="margin-top: 10px">Step 7a: Also tick the following box if appropriate</h3>
+
+									<div id="checkbox-q8" class="checkbox custom-control custom-checkbox">
+										<input type="checkbox" class="custom-control-input" name="customCheck-q8" id="customCheck1-q8" value="1">
+										<label class="custom-control-label" for="customCheck1-q8">
+											Is wrist bent away from midline?
+											<img src="media/left-side/Q3/wrist5.jpg" alt="lowerarm midline or out to side" class="checkbox-img">
+										</label>
+									</div>
+								</div>
+							</div>
+							<!-- step 8 end -->
+
+						</div>
+
+						<div class="tab-pane" id="step-9" role="tabpanel" aria-labelledby="step-9-tab">
+							<!-- step 9 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q9" class="text-center">Step 9: Wrist Twist (Left)</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q9" class="radio option-input" value="1" id="radio1-q9">
+										<label for="radio1-q9" class="radioImg img">
+											<img src="media/left-side/Q4/wrist_twist1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q9" class="radio option-input" value="2" id="radio2-q9">
+										<label for="radio2-q9" class="radioImg img">
+											<img src="media/left-side/Q4/wrist_twist2.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q9" style="text-align: center;">
+									<div id="checkbox-q9" class="checkbox"></div>
+								</div>
+							</div>
+							<!-- step 9 end -->
+						</div>
+
+
+
+
+
+
+
+
+
+						<div class="tab-pane" id="step-10" role="tabpanel" aria-labelledby="step-10-tab">
+							<!-- step 10 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part A. Arm & Wrist Analysis</h4></div>
+
+								<div><h3 id="q10" class="text-center">Step 10: Arm & wrist - select the force and load that most reflects the working situation</h3></div>
+								<div class="answer-grid">
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q10" class="radio option-input" value="0" id="radio1-q10">
+										<label for="radio1-q10">
+											<ul>
+												<h5><strong>Score 0</strong></h5>
+												<li>No resistance</li>
+												<li>Less than 2 kg intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q10" class="radio option-input" value="1" id="radio2-q10">
+										<label for="radio2-q10">
+											<ul>
+												<h5><strong>Score 1</strong></h5>
+												<li>2 - 10 kg intermittent load or force</li>
+												<h2 style="visibility: hidden;">#</h2>
+											</ul>
+										</label>
+									</span>
+
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q10" class="radio option-input" value="2" id="radio3-q10">
+										<label for="radio3-q10">
+											<ul>
+												<h5><strong>Score 2</strong></h5>
+												<li>2 - 10 kg static load</li>
+												<li>2 - 10 kg repeated loads or forces</li>
+												<li>10 kg or more, intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q10" class="radio option-input" value="3" id="radio4-q10">
+										<label for="radio4-q10">
+											<ul>
+												<h5><strong>Score 3</strong></h5>
+												<li>More than 10 kg static load</li>
+												<li>10+ kg repeated loads or forces</li>
+												<li>Shock or forces with rapid buildup</li>
+											</ul>
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q10" class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-q10" style="margin-top: 10px">Step 10a: Select this box if it reflects your muscle use</h3>
+									<div id="checkbox-q10" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q10" id="customCheck-q10" value="1">
+											<label class="custom-control-label" for="customCheck-q10">
+												<ul class="checkBoxList">
+													<h5><strong>Score 1</strong></h5>
+													Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.
+												</ul>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 10 end -->
+						</div>
+
+						<div class="tab-pane" id="step-11" role="tabpanel" aria-labelledby="step-11-tab">
+							<!-- step 11 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part B. Neck, Trunk & Leg Analysis</h4></div>
+
+								<div><h3 id="q11" class="text-center">Step 11: Locate Neck Position</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q11" class="option-input radio" value="1" id="radio1-q11">
+										<label for="radio1-q11" class="radioImg img">
+											<img src="media/Q6/neck1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q11" class="option-input radio" value="2" id="radio2-q11">
+										<label for="radio2-q11" class="radioImg img">
+											<img src="media/Q6/neck2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q11" class="option-input radio" value="3" id="radio3-q11">
+										<label for="radio3-q11" class="radioImg img">
+											<img src="media/Q6/neck3.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q11" class="option-input radio" value="4" id="radio4-q11">
+										<label for="radio4-q11" class="radioImg img">
+											<img src="media/Q6/neck4.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q11" class="optional-fields hide" style="text-align: center;">
+									<h3 class="optional-question" style="margin-top: 10px">Step 11a: Also tick the following boxes if appropriate</h3>
+									<div id="checkbox" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q11" id="customCheck1-q11" value="1">
+											<label class="custom-control-label" for="customCheck1-q11">
+												<img src="media/Q6/neck5.jpg" alt="" class="checkbox-img">
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q11" id="customCheck2-q11" value="1">
+											<label class="custom-control-label" for="customCheck2-q11">
+												<img src="media/Q6/neck6.jpg" alt="" class="checkbox-img">
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 11 end -->
+						</div>
+
+						<div class="tab-pane" id="step-12" role="tabpanel" aria-labelledby="step-12-tab">
+							<!-- step 12 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part B. Neck, Trunk & Leg Analysis</h4></div>
+
+								<div><h3 id="q12" class="text-center">Step 12: Locate Trunk Position</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q12" class="radio option-input" value="1" id="radio1-q12">
+										<label for="radio1-q12" class="radioImg img">
+											<img src="media/Q7/trunk1.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q12" class="radio option-input" value="2" id="radio2-q12">
+										<label for="radio2-q12" class="radioImg img">
+											<img src="media/Q7/trunk2.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q12" class="radio option-input" value="3" id="radio3-q12">
+										<label for="radio3-q12" class="radioImg img">
+											<img src="media/Q7/trunk3.jpg" alt="" class="img">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q12" class="radio option-input" value="4" id="radio4-q12">
+										<label for="radio4-q12" class="radioImg img">
+											<img src="media/Q7/trunk4.jpg" alt="" class="img">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q12" class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-q12" style="margin-top: 10px">Step 12a: Also tick the following boxes if appropriate</h3>
+									<div id="checkbox-q12" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q12" id="customCheck1-q12" value="1">
+											<label class="custom-control-label" for="customCheck1-q12">
+												<img src="media/Q7/trunk5.jpg" alt="" class="checkbox-img">
+											</label>
+										</div>
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q12" id="customCheck2-q12" value="1">
+											<label class="custom-control-label" for="customCheck2-q12">
+												<img src="media/Q7/trunk6.jpg" alt="" class="checkbox-img">
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 12 end -->
+						</div>
+						<div class="tab-pane" id="step-13" role="tabpanel" aria-labelledby="step-13-tab">
+							<!-- step 13 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part B. Neck, Trunk & Leg Analysis</h4></div>
+
+								<div><h3 id="q13" class="text-center">Step 13: Legs</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q13" class="radio option-input" value="1" id="radio1-q13">
+										<label for="radio1-q13" class="">
+											Legs and feet are well supported and in an evenly balanced posture.<br>
+											<img src="media/Q8/legs1.jpg" alt="" class="img" style="margin: 10px auto 0 auto">
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q13" class="radio option-input" value="2" id="radio2-q13">
+										<label for="radio2-q13" class="">
+											Legs and feet are NOT evenly balanced and supported.<br>
+											<img src="media/Q8/legs2.jpg" alt="" class="img" style="margin: 10px auto 0 auto">
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q13" class="optional-fields hide" style="text-align: center;">
+									<div id="checkbox-q13" class="checkbox">
+									</div>
+								</div>
+							</div>
+							<!-- step 13 end -->
+						</div>
+
+						<div class="tab-pane" id="step-14" role="tabpanel" aria-labelledby="step-14-tab">
+							<!-- step 14 start -->
+							<div class="question-container">
+								<div><h4 id="" class="text-center sub-heading" style="color: #6c757d; margin-top: 0px;">Part B. Neck, Trunk & Leg Analysis</h4></div>
+
+								<div><h3 id="q14" class="text-center">Step 14: Neck, trunk & leg - select the force and load that most reflects the working situation</h3></div>
+								<div class="answer-grid">
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q14" class="radio option-input" value="0" id="radio1-q14">
+										<label for="radio1-q14" class="radioImg img">
+											<ul>
+												<h5><strong>Score 0</strong></h5>
+												<li>No resistance</li>
+												<li>Less than 2 kg intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q14" class="radio option-input" value="1" id="radio2-q14">
+										<label for="radio2-q14" class="radioImg img">
+											<ul>
+												<h5><strong>Score 1</strong></h5>
+												<li>2 - 10 kg intermittent load or force</li>
+												<h2 style="visibility: hidden;">#</h2>
+											</ul>
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q14" class="radio option-input" value="2" id="radio3-q14">
+										<label for="radio3-q14" class="radioImg img">
+											<ul>
+												<h5><strong>Score 2</strong></h5>
+												<li>2 - 10 kg static load</li>
+												<li>2 - 10 kg repeated loads or forces</li>
+												<li>10 kg or more, intermittent load or force</li>
+											</ul>
+										</label>
+									</span>
+									<span class="btn quiz-zone">
+										<input type="radio" name="radio-q14" class="radio option-input" value="3" id="radio4-q14">
+										<label for="radio4-q14" class="radioImg img">
+											<ul>
+												<h5><strong>Score 3</strong></h5>
+												<li>More than 10 kg static load</li>
+												<li>10+ kg repeated loads or forces</li>
+												<li>Shock or forces with rapid buildup</li>
+											</ul>
+										</label>
+									</span>
+								</div>
+								<div id="optional-fields-q14" class="optional-fields hide" style="text-align: center;">
+									<h3 id="optional-q14" style="margin-top: 10px">Step 14a: Select this box if it reflects your muscle use</h3>
+									<div id="checkbox-q14" class="checkbox">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" name="customCheck-q14" id="customCheck1-q14" value="1">
+											<label class="custom-control-label" for="customCheck1-q14">
+												<ul class="checkBoxList">
+													<h5><strong>Score 1</strong></h5>
+													Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.
+												</ul>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- step 14 end -->
+						</div>
+
+
+						<div class="tab-pane text-center" id="step-15" role="tabpanel" aria-labelledby="step-15-tab">
+							<!-- step 15 start -->
+							<div class="form-container text-center animated fadeIn">
+								<div><h3 id="q15" class="text-center">15. Personal details*</h3></div>
+								<br>
+								<form id="form">
+									<div class="form-group">
+										<label for="form-email" class="form-label"><h5>Email address</h5></label>
+										<input type="email" class="form-control" id="form-email" aria-describedby="emailHelp" placeholder="e.g., name@example.com" maxlength="40">
+										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+									</div>
+									<div class="form-group">
+										<label for="form-subject" class="form-label"><h5>Assessee</h5></label>
+										<input class="form-control" type="text" placeholder="e.g., John Doe" id="form-subject" maxlength="40">
+									</div>
+									<div class="form-group">
+										<label for="form-scorer" class="form-label"><h5>Assessor</h5></label>
+										<input class="form-control" type="text" placeholder="e.g., Jane Doe" id="form-scorer" maxlength="40">
+									</div>
+									<div class="form-group">
+										<label for="form-department" class="form-label"><h5>Department/Location</h5></label>
+										<input class="form-control" type="text" placeholder="e.g., HR" id="form-department" maxlength="40">
+									</div>
+									<div class="form-group">
+										<label for="form-company" class="form-label"><h5>Company/Organisation</h5></label>
+										<input class="form-control" type="text" placeholder="e.g., Lorem Ipsum Ltd" id="form-company" maxlength="40">
+									</div>
+									<div class="form-group">
+										<label for="form-company" class="form-label"><h5>Date</h5></label>
+										<input class="form-control" type="date" placeholder="e.g., 12/06/2020" id="form-date" maxlength="40">
+									</div>
+									<p style=""><strong>*This step is optional for a beta version.</strong><br>Your details are passed into the PDF file for your use only.<br>No data is retained.<br><br>Leave fields blank to skip.</p>
+									<button id="results-btn" type="submit" class="next-btn btn-success btn" onclick="showResults();" data-toggle="modal" data-target="#results-modal">Show Results</button>
+								</form>
+							</div>
+							<!-- step 15 end -->
+						</div>
+
+						<div class="tab-pane" id="step-16" role="tabpanel" aria-labelledby="step-16-tab" style="align-items: center;">
+							<!-- step 16 start -->
+							<div class="form-container text-center animated fadeIn results-page" id="results-page" style="margin-right: 0; margin-left: 0; padding-top: 10px;">
+								<div class="flex-wrapper">
+									<div id="score-container"></div>
+									<div id="score-container-l"></div>
+									<div id="score-list" style="padding-top: 10px; text-align: left;">
+										<a tabindex="0" class="text-left" id="score-list" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-content="<b>Score 1 or 2:</b> Action level 1; The posture is acceptable if it is not maintained or repeated for long periods<br>
+											<b>Score 3 or 4:</b> Action level 2; Further investigation is needed and changes may be required<br>
+											<b>Score 5 or 6:</b> Action level 3; Further investigation and changes are required soon<br>
+											<b>Score 7 or more:</b> Action level 4; Further investigation and changes are required immediately"><img src="media/icons/info.png" alt="information" style="float: left; margin-right: 5px;"><i style="color: #619ed0; cursor: pointer;">Other scores?</i></a>
+										</div>
+									</div>
+									<div id="your-details">
+										<h4><img src="media/icons/next-steps.png" alt="Personal Details Icon" style="float: left; margin-right: 5px;">Next steps:</h4>
+										<button type="button" class="btn btn-outline-primary next-steps-btn" id="full-sum-btn" style="text-transform: none;" data-toggle="modal" data-target="#results-modal">View full summary</button>
+										<button type="button" class="btn btn-outline-primary next-steps-btn" onclick="location.href='assessment-lr.html'" style="text-transform: none;">New assessment - Left & Right Sides</button>
+										<button type="button" class="btn btn-outline-primary next-steps-btn" onclick="location.href='assessment.html'" style="text-transform: none;">New assessment - Right Side</button>
+										<button type="button" class="btn btn-outline-primary next-steps-btn" onclick="location.href='assessment-l.html'" style="text-transform: none;">New assessment - Left Side</button>
+									</div>
+									
+
+								</div>
+								<div class="controls text-center">
+
+								</div>
+								<!-- step 16 end -->
+							</div>
+
+						</div>
+						<div class="controls text-center" id="controls">
+							<button id="prev-btn" type="submit" class="btn btn-outline-success hide animated fadeIn">Back</button> 
+							<button id="next-btn" type="submit" class="next-btn btn-success btn hide animated fadeIn">Save & Continue</button>
+						</div>
+					</div>
+					<!-- end of card body -->
+					<div id="card-footer" class="card-footer text-muted">
+						<p></p>
+					</div>
+				</div>
+				<!-- end of card -->
+				<div class="results-row" style="margin-left: 10px;">
+					<div class="card results-card results-card-hide animated" id="results-card">
+						<div class="card-header main-header">
+							<h3 id="scores-so-far" class="title text-center">Progress so far</h3>
+						</div>
+						<div class="card-body text-center" id="results-list-cont" style="display: flex; flex-wrap: wrap; padding: 5px;">
+							<h4 style="text-align: left;  margin-bottom: 10px; width: 100%"><img src="media/icons/table.png" alt="Table Icon" style="float: left; margin-right: 5px;"> Table scores:</h4>
+							<div style="text-align: left; margin-bottom: 10px; width: 100%">If you are familiar with the manual version of RULA, Table A and Table B values are indicated below.</div>
+							<div style="flex: 0 300px; margin: 0 4% 0 4%;">
+								<ul class="results-list">
+									<li class="li-head" id="li-head-a"><h5>Part A:</h5></li>
+									<li class="item partA" style="border-top: none;">1. Upper Arm (Right): <span id="upper-arm" class="score">0</span></li>
+									<li class="item partA">2. Lower Arm (Right): <span id="lower-arm" class="score">0</span></li>
+									<li class="item partA">3. Wrist (Right): <span id="wrist" class="score">0</span></li>
+									<li class="item partA">4. Wrist Twist (Right): <span id="wrist-twist" class="score">0</span></li>
+									<li class="item partA">5. Muscle Use + Force/Load (Right): <span id="muscle-a-r" class="score">0</span></li>
+
+
+									<li class="item partA">6. Upper Arm (Left): <span id="upper-arm-l" class="score">0</span></li>
+									<li class="item partA">7. Lower Arm (Left): <span id="lower-arm-l" class="score">0</span></li>
+									<li class="item partA">8. Wrist (Left): <span id="wrist-l" class="score">0</span></li>
+									<li class="item partA">9. Wrist Twist (Left): <span id="wrist-twist-l" class="score">0</span></li>
+
+
+
+									<li class="item partA">10. Muscle Use + Force/Load (Left): <span id="muscle-a" class="score">0</span></li>
+									<li class="item table-sum partA hide">Posture Score - Right (Table A): <span id="posture-a" class="score">0</span></li>
+									<li class="item table-sum partA hide">Posture Score - Left (Table A): <span id="posture-a-l" class="score">0</span></li>
+									<li class="item sum partA hide">Final Arm & Wrist Score - Right: <span id="part-a-score" class="score">0</span></li>
+									<li class="item sum partA hide">Final Arm & Wrist Score - Left: <span id="part-a-score-l" class="score">0</span></li>
+								</ul>
+							</div>
+							<div style="flex: 0 300px; margin: 0 4% 0 4%;">
+								<ul class="results-list">
+									<li class="li-head" id="li-head-b"><h5>Part B:</h5></li>
+									<li class="item partB" style="border-top: none;">11. Neck: <span id="neck" class="score">0</span></li>
+									<li class="item partB">12. Trunk: <span id="trunk" class="score">0</span></li>
+									<li class="item partB">13. Leg: <span id="leg" class="score">0</span></li>
+									<li class="item partB">14. Muscle Use + Force/Load: <span id="muscle-b" class="score">0</span></li>
+									<li class="item table-sum partB hide">Posture Score (Table B): <span id="posture-b" class="score">0</span></li>
+									<li class="item sum partB hide">Final Neck, Trunk & Leg Score: <span id="part-b-score" class="score">0</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<button class="mobile-results text-center animated bounce" id="show-results" onclick="toggleResultsMobile()"><img src="media/arrow-up.png"><br><h6><strong>Show scores</strong></h6>
+			</button>
+			<!-- The Modal -->
+			<div id="results-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+				<!-- Modal content -->
+				<div class="modal-dialog modal-dialog-scrollable" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h2 style="width: 100%; text-align: center; margin-bottom: 5px;">Full Summary</h2>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true" style="font-size: 28px;">&times;</span>
+							</div>
+
+
+
+							<!-- Results modal -->
+							<div class="modal-body" id="modal-body">
+								<div class="sum-answers" id="sum-answers">
+									<span style="width: 100%; text-align: center; background-image: url('media/contact-us.png');  background-repeat: no-repeat; background-position: right top;">
+										<img src="media/logo.png" alt="Osmond Ergonomics Logo" width="154" height="55">
+										<!-- <img src="media/contact-us.png" alt="" width="136" height="55" style="float: right; "> -->
+										
+										<hr style="border-color: #dfdedf; border-width: 1px; max-width: 97%;">
+									</span>
+
+									<h2>Rapid Upper Limb Assessment (Right & Left Sides)</h2>
+									<div id="rula-scorecard" class="sum-cont" style="margin-top: 10px"></div>
+									<div id="rula-scorecard-l" class="sum-cont" style="margin-top: 10px"></div>
+									
+									
+
+									<div style="padding: 5px 0 5px 15px; text-align: left; float: right; margin-top: 15px;" class="sum-cont" id="details-list">
+										<h4 style="text-align: left;"><img src="media/icons/details.png" alt="Personal Details Icon" style="float: left; margin-right: 5px;">Personal details:</h4>
+										<span class="personal-details">Assessee: <span id="subject"></span></span>
+										<span class="personal-details">Assessor: <span id="scorer"></span></span>
+										<span class="personal-details">Email: <span id="email"></span></span>
+										<span class="personal-details">Department/Location: <span id="department"></span></span>
+										<span class="personal-details">Company/Organisation: <span id="company"></span></span>
+										<span class="personal-details" style="margin-bottom: 10px;">Date: <span id="date"></span></span>
+									</div>
+									<h4 style="text-align: left; margin-top: 15px; width: 100%;"><img src="media/icons/select.png" alt="Answers Selected Icon" style="float: left; margin-right: 5px;">Answers seleted:</h4>
+
+									<div id="sum-1" class="sum-cont" style="order: 1">
+										<p class="sum-header">Step 1: Locate Upper Arm Position (Right)</p>
+										<span id="sum-1-img"></span>
+										<br>
+										<p class="sum-header">Step 1a: Also tick the following boxes if appropriate</p>
+										<ul style="list-style: circle;">
+											<li class="sum-li" id="sum-customCheck1-q1">Shoulder is raised</li>
+											<li class="sum-li" id="sum-customCheck2-q1">Upper arm is abducted (away from the side of the body)</li>
+											<li class="sum-li" id="sum-customCheck3-q1">Leaning or supporting the weight of the arm</li>
+										</ul>
+									</div>
+
+									<div id="sum-2" class="sum-cont" style="order: 2">
+										<p class="sum-header">Step 2: Locate Lower Arm Position (Right)</p>
+										<span id="sum-2-img"></span>
+										<span class="sum-li" id="sum-customCheck-q2">
+											<p class="sum-header" style="opacity: 1;">Step 2a: Also tick the following box if appropriate</p>
+											<img src="media/Q2/lowerarm4.jpg" alt="" style="height: 50px; margin-top: 10px; margin-left: 50px">
+											<ul style="list-style: circle;">
+												<li>Is either arm working across midline or out to side of body?</li>
+											</ul>
+										</span>
+										<!-- html2pdf page break -->
+										<div class="html2pdf__page-break"></div>
+									</div>
+
+
+
+									<div id="sum-3" class="sum-cont" style="order: 3">
+										<p class="sum-header">Step 3: Locate Wrist Position (Right)</p>
+										<span id="sum-3-img"></span>
+										<span class="sum-li" id="sum-customCheck-q3">
+											<p class="sum-header" style="opacity: 1;">Step 3a: Also tick the following box if appropriate</p>
+											<img src="media/Q3/wrist5.jpg" alt="" style="height: 50px; margin-top: 10px; margin-left: 50px">
+											<ul style="list-style: circle;">
+												<li>Is wrist bent away from midline?</li>
+											</ul>
+										</span>
+									</div>
+
+									<div id="sum-4" class="sum-cont" style="order: 4">
+										<p class="sum-header">Step 4: Wrist Twist (Right)</p>
+										<span id="sum-4-img"></span>
+									</div>
+
+
+									<div id="sum-5" class="sum-cont" style="order: 5">
+										<p class="sum-header">Step 5: Arm & wrist - select the force and load that most reflects the working situation (Right)</p>
+										<div id="sum-5-cont">
+											<div id="sum-5-q1" class="sum-li" style="grid-area: 1 / 1 / 2 / 2;">
+												<ul>
+													<strong>Score 0</strong>
+													<li>No resistance</li>
+													<li>Less than 2 kg intermittent load or force</li>
+												</ul>
+											</div>
+											<div id="sum-5-q2" class="sum-li" style="grid-area: 1 / 2 / 2 / 3;">
+												<ul>
+													<strong>Score 1</strong>
+													<li>2 - 10 kg intermittent load or force</li>
+													<h2 style="visibility: hidden;">#</h2>
+												</ul>
+											</div>
+											<div id="sum-5-q3" class="sum-li" style="grid-area: 2 / 1 / 3 / 2;">
+												<ul>
+													<strong>Score 2</strong>
+													<li>2 - 10 kg static load</li>
+													<li>2 - 10 kg repeated loads or forces</li>
+													<li>10 kg or more, intermittent load or force</li>
+												</ul>
+											</div>
+											<div id="sum-5-q4" class="sum-li" style="grid-area: 2 / 2 / 3 / 3;">
+												<ul>
+													<strong>Score 3</strong>
+													<li>More than 10 kg static load</li>
+													<li>10+ kg repeated loads or forces</li>
+													<li>Shock or forces with rapid buildup</li>
+												</ul>
+											</div>
+										</div>
+										<span class="sum-li" id="sum-customCheck-q5">
+											<p class="sum-header" style="opacity: 1;">Step 5a: Select this box if it reflects your muscle use</p>
+											<ul style="list-style: circle;">
+												<li><strong>Score 1</strong><br>Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.</li>
+											</ul>
+										</span>
+									</div>
+
+
+
+
+
+									<div id="sum-6" class="sum-cont" style="order: 6">
+										<p class="sum-header">Step 6: Locate Upper Arm Position (Left)</p>
+										<span id="sum-6-img"></span>
+										<br>
+										<p class="sum-header">Step 6a: Also tick the following boxes if appropriate</p>
+										<ul style="list-style: circle;">
+											<li class="sum-li" id="sum-customCheck1-q6">Shoulder is raised</li>
+											<li class="sum-li" id="sum-customCheck2-q6">Upper arm is abducted (away from the side of the body)</li>
+											<li class="sum-li" id="sum-customCheck3-q6">Leaning or supporting the weight of the arm</li>
+										</ul>
+									</div>
+
+									<div id="sum-7" class="sum-cont" style="order: 7">
+										<p class="sum-header">Step 7: Locate Lower Arm Position (Left)</p>
+										<span id="sum-7-img"></span>
+										<span class="sum-li" id="sum-customCheck-q7">
+											<p class="sum-header" style="opacity: 1;">Step 7a: Also tick the following box if appropriate</p>
+											<img src="media/left-side/Q2/lowerarm4.jpg" alt="" style="height: 50px; margin-top: 10px; margin-left: 50px">
+											<ul style="list-style: circle;">
+												<li>Is either arm working across midline or out to side of body?</li>
+											</ul>
+										</span>
+									</div>
+
+
+									<div id="sum-8" class="sum-cont" style="order: 8">
+										<p class="sum-header">Step 8: Locate Wrist Position (Left)</p>
+										<span id="sum-8-img"></span>
+										<span class="sum-li" id="sum-customCheck-q8">
+											<p class="sum-header" style="opacity: 1;">Step 8a: Also tick the following box if appropriate</p>
+											<img src="media/left-side/Q3/wrist5.jpg" alt="" style="height: 50px; margin-top: 10px; margin-left: 50px">
+											<ul style="list-style: circle;">
+												<li>Is wrist bent away from midline?</li>
+											</ul>
+										</span>
+										<!-- html2pdf page break -->
+										<div class="html2pdf__page-break"></div>
+
+									</div>
+
+									<div id="sum-9" class="sum-cont" style="order: 9">
+										<p class="sum-header">Step 9: Wrist Twist (Left)</p>
+										<span id="sum-9-img"></span>
+									</div>
+
+
+
+
+									<div id="sum-10" class="sum-cont" style="order: 10">
+										<p class="sum-header">Step 10: Arm & wrist - select the force and load that most reflects the working situation (Left)</p>
+										<div id="sum-10-cont">
+											<div id="sum-10-q1" class="sum-li" style="grid-area: 1 / 1 / 2 / 2;">
+												<ul>
+													<strong>Score 0</strong>
+													<li>No resistance</li>
+													<li>Less than 2 kg intermittent load or force</li>
+												</ul>
+											</div>
+											<div id="sum-10-q2" class="sum-li" style="grid-area: 1 / 2 / 2 / 3;">
+												<ul>
+													<strong>Score 1</strong>
+													<li>2 - 10 kg intermittent load or force</li>
+													<h2 style="visibility: hidden;">#</h2>
+												</ul>
+											</div>
+											<div id="sum-10-q3" class="sum-li" style="grid-area: 2 / 1 / 3 / 2;">
+												<ul>
+													<strong>Score 2</strong>
+													<li>2 - 10 kg static load</li>
+													<li>2 - 10 kg repeated loads or forces</li>
+													<li>10 kg or more, intermittent load or force</li>
+												</ul>
+											</div>
+											<div id="sum-10-q4" class="sum-li" style="grid-area: 2 / 2 / 3 / 3;">
+												<ul>
+													<strong>Score 3</strong>
+													<li>More than 10 kg static load</li>
+													<li>10+ kg repeated loads or forces</li>
+													<li>Shock or forces with rapid buildup</li>
+												</ul>
+											</div>
+										</div>
+										<span class="sum-li" id="sum-customCheck-q10">
+											<p class="sum-header" style="opacity: 1;">Step 10a: Select this box if it reflects your muscle use</p>
+											<ul style="list-style: circle;">
+												<li><strong>Score 1</strong><br>Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.</li>
+											</ul>
+										</span>
+									</div>
+
+									<div id="sum-11" class="sum-cont" style="order: 11">
+										<p class="sum-header">Step 11: Locate Neck Position</p>
+										<span id="sum-11-img"></span>
+
+										<span class="sum-li" id="sum-customCheck1-q11">
+											<p class="sum-header" style="opacity: 1;">Step 10a: Also tick the following box if appropriate</p>
+											<img src="media/Q6/neck5.jpg" alt="" style="height: 80px; margin-top: 10px; margin-left: 50px">
+										</span>
+										<span class="sum-li" id="sum-customCheck2-q11">
+											<img src="media/Q6/neck6.jpg" alt="" style="height: 80px; margin-top: 10px; margin-left: 50px">
+										</span>
+									</div>
+
+									<div id="sum-12" class="sum-cont" style="order: 12">
+										<p class="sum-header">Step 12: Locate Trunk Position</p>
+										<span id="sum-12-img"></span>
+
+										<span class="sum-li" id="sum-customCheck1-q12">
+											<p class="sum-header" style="opacity: 1;">Step 12a: Also tick the following box if appropriate</p>
+											<img src="media/Q7/trunk5.jpg" alt="" style="height: 80px; margin-top: 10px; margin-left: 50px">
+										</span>
+										<span class="sum-li" id="sum-customCheck2-q12">
+											<img src="media/Q7/trunk6.jpg" alt="" style="height: 80px; margin-top: 10px; margin-left: 50px">
+										</span>
+									</div>
+
+									<div id="sum-13" class="sum-cont" style="order: 13">
+										<p class="sum-header">Step 13: Legs</p>
+										<span id="sum-13-img"></span>
+										<!-- html2pdf page break -->
+										<div class="html2pdf__page-break"></div>
+									</div>
+								</div>
+
+								<div id="sum-14" class="sum-cont" style="order: 14; width: 100%; margin-bottom: 20px;">
+									<p class="sum-header">Step 14: Neck, trunk & leg - select the force and load that most reflects the working situation</p>
+									<div id="sum-14-cont" style="max-width: 400px;">
+										<div id="sum-14-q1" class="sum-li" style="grid-area: 1 / 1 / 2 / 2;">
+											<ul>
+												<strong>Score 0</strong>
+												<li>No resistance</li>
+												<li>Less than 2 kg intermittent load or force</li>
+											</ul>
+										</div>
+										<div id="sum-14-q2" class="sum-li" style="grid-area: 1 / 2 / 2 / 3;">
+											<ul>
+												<strong>Score 1</strong>
+												<li>2 - 10 kg intermittent load or force</li>
+												<h2 style="visibility: hidden;">#</h2>
+											</ul>
+										</div>
+										<div id="sum-14-q3" class="sum-li" style="grid-area: 2 / 1 / 3 / 2;">
+											<ul>
+												<strong>Score 2</strong>
+												<li>2 - 10 kg static load</li>
+												<li>2 - 10 kg repeated loads or forces</li>
+												<li>10 kg or more, intermittent load or force</li>
+											</ul>
+										</div>
+										<div id="sum-14-q4" class="sum-li" style="grid-area: 2 / 2 / 3 / 3;">
+											<ul>
+												<strong>Score 3</strong>
+												<li>More than 10 kg static load</li>
+												<li>10+ kg repeated loads or forces</li>
+												<li>Shock or forces with rapid buildup</li>
+											</ul>
+										</div>
+									</div>
+									<span class="sum-li" id="sum-customCheck-q14">
+										<p class="sum-header" style="opacity: 1;">Step 14a: Select this box if it reflects your muscle use</p>
+										<ul style="list-style: circle;">
+											<li><strong>Score 1</strong><br>Posture is mainly static, e.g. held for longer than 1 minute or repeated more than 4 times per minute.</li>
+										</ul>
+									</span>
+								</div>
+
+
+
+							</div>
+							<div class="modal-footer">
+								<button id="html2canvas" class="btn btn-success" onclick="html2canvas();" style="margin: 5px;">Save to PDF<img src="media/icons/print.png" alt="Print icon" style=" margin-left: 5px; height: 18px;"></button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<footer>
+					<div class="zone footer">
+						<span class="social-media">
+							<ul class="social-media-list">
+								<li><a href="https://www.facebook.com/OsmondErgonomics/" target="_blank"><img src="media/soc-med/facebook.png" alt="Facebook"></a></li>
+								<li><a href="https://twitter.com/osmondgroup?lang=en" target="_blank"><img src="media/soc-med/twitter.png" alt="Twitter"></a></li>
+								<li><a href="https://www.linkedin.com/company/osmondergonomics/" target="_blank"><img src="media/soc-med/linkedin.png" alt="LinkedIn"></a></li>
+								<li><a href="https://www.instagram.com/osmond_ergonomics/?hl=en" target="_blank"><img src="media/soc-med/instagram.png" alt="Instagram"></a></li>
+								<li><a href="https://www.ergonomics.co.uk/contact_osmond_ergonomics.html" target="_blank"><img src="media/soc-med/email.png" alt="Contact us"></a></li>	
+							</ul>
+						</span>
+						<div class="break"></div> <!-- break -->
+						<p class="footerTxt" id="footer-text">Copyright © 2019 Osmond Group Limited. | Registered Company Number 00736813 | VAT Number 189738788 | Website built by <a href="https://www.linkedin.com/in/waldemar-walczak-697651192/" target="_blank">Waldemar Walczak</a></p>
+					</div>
+				</footer>
+				<script type="text/javascript" defer src="js/main-lr.js"></script>
+				<script type="text/javascript" defer src="js/util/html2canvas.js"></script>
+				<script type="text/javascript" defer src="js/util/jspdf.min.js"></script>
+				<script type="text/javascript" defer src="js/util/html2pdf.bundle.min.js"></script>
+				<script type="text/javascript" defer src="js/util/bootstrap.bundle.min.js"></script>
+				<!-- <script type="text/javascript" defer src="js/html.js"></script> -->
+				<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+			</body>
+			</html>

@@ -1,0 +1,138 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    font-family: 'Lato', sans-serif;
+    min-width: 320px;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+
+}
+/*.card-header {
+    font-size:2em;
+}*/
+
+.index-card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.zone {
+    color:black;
+    border-radius:4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+nav {
+  background: white;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
+    background: white;
+}
+
+.logo {
+    text-align: center;
+
+}
+
+.about {
+    text-align: right;
+    padding-right: 30px;
+}
+
+.button-text {
+    float: left;
+    margin-right: 2px;
+    text-transform: uppercase;
+}
+
+a {
+    color: #343a40;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.card {
+    max-width: 850px;
+    min-width: 320px;
+    margin-top: 30px;
+}
+
+hr {
+    border-color: #adb5bd;
+    border-width: 3px;
+    max-width: 65px;
+}
+p {
+    margin-top: 10px;
+    color: black;
+    font-size: 14px;
+}
+
+.sub-heading {
+    font-size: large;
+}
+
+.btn-success {
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+.bounce {
+    animation-iteration-count: 1;
+    animation-duration: 3s;
+}
+
+.footer {
+    background: #FFFFFF; 
+    display: flex;
+    justify-content: center;
+    font-size: 0.9em;
+    margin: 30px auto 0 auto;
+    flex-wrap: wrap;
+}
+.footerTxt {
+    text-align: center;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    list-style-type: none;
+    padding: 0px;
+}
+
+@media screen and (max-width: 635px) {
+  .button-text {
+    visibility: hidden;
+    display: none;
+  }
+}

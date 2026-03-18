@@ -1,0 +1,24 @@
+.main-card {
+	min-width: 850px;
+	max-width: 1000px;
+
+	justify-self: center;
+}
+
+.mb-3 {
+	border: none;
+}
+.card-body {
+	padding: 0px;
+
+}
+.card-text {
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.pdf-download {
+	text-decoration: underline;
+	color: blue;
+}
