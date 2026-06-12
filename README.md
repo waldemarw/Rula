@@ -1,11 +1,69 @@
-# RULA - Rapid Upper Limb Assessment
+# RULA — Rapid Upper Limb Assessment
 
-A free online ergonomic screening tool that assesses biomechanical and postural loading on the whole body, with particular attention to the neck, trunk and upper limbs.
+A free online ergonomic screening tool that assesses biomechanical and postural loading on the
+whole body, with particular attention to the neck, trunk and upper limbs.
 
-Based on the original methodology by McAtamney, L. and Corlett, E.N. (Applied Ergonomics 1993, 24(2), 91-99).
+Based on the original methodology by McAtamney, L. and Corlett, E.N.
+(Applied Ergonomics 1993, 24(2), 91–99).
 
 **Live site:** [rula.co.uk](https://rula.co.uk)
 
-## About
+## Stack
 
-Originally built in 2019 for [Osmond Ergonomics](https://www.ergonomics.co.uk/) as a static website using HTML, CSS, Bootstrap 4 and jQuery. Refactored in 2026 to remove jQuery, consolidate three separate assessment scripts into a single unified engine, and upgrade to Bootstrap 5 JS while keeping the original Bootstrap 4 CSS and visual design intact. All third-party JS libraries are bundled locally with no external CDN dependencies.
+Vue 3 (`<script setup>` + TypeScript) · Pinia (setup stores) · vue-router ·
+[vite-ssg](https://github.com/antfu-collective/vite-ssg) for static pre-rendering (SEO) ·
+Vitest · deployed to GitHub Pages via Actions.
+
+## Commands
+
+| Command             | Purpose                                      |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Dev server with HMR                          |
+| `npm run test`      | Vitest in watch mode                         |
+| `npm run test:run`  | Test suite once (CI gate)                    |
+| `npm run typecheck` | `vue-tsc --noEmit`                           |
+| `npm run build`     | Static-generate the site into `dist/`        |
+| `npm run preview`   | Serve the built `dist/`                      |
+
+## Architecture
+
+- `src/assessments/` — the assessment framework. Each tool lives in its own folder
+  (`rula/` today; REBA/ROSA/… can be added later) and registers in `registry.ts`.
+  - `rula/tables.ts` — the original RULA lookup tables, ported verbatim.
+  - `rula/scoring.ts` — pure scoring engine (no framework imports, reusable server-side).
+  - `rula/questions.ts` — question/option definitions including the score values.
+- `src/stores/rulaSession.ts` — Pinia setup store holding one assessment session.
+- `src/pages/` + `src/router/routes.ts` — one prerendered route per page;
+  `/assessment/{right,left,both}` share `AssessmentPage.vue`.
+- `legacy/` — the original 2019 static site, kept as the **authoritative scoring fixture**.
+  Do not edit; the parity tests load `legacy/js/rula-tables.js` directly.
+
+## Scoring parity
+
+The whole value of the tool is that scores match the published RULA method exactly.
+This is protected by tests:
+
+- `tests/rula-tables-parity.spec.ts` — TS tables ≡ legacy JS tables, key for key.
+- `tests/rula-scoring.spec.ts` — golden cases, action-level boundaries, and exhaustive
+  totality over every reachable input combination.
+- `tests/rula-questions.spec.ts` — locks the option/adjustment values and step order.
+- `tests/rula-session.spec.ts` — store wiring, including the per-arm force/load rule
+  in both-sides mode.
+
+CI runs the suite before every deploy. **Never change `tables.ts`, option values, or
+engine arithmetic without understanding why a parity test failed.**
+
+## Contact form
+
+The contact page posts to [Web3Forms](https://web3forms.com). Setup: create a (free)
+access key for the inbox address, then set it as the `WEB3FORMS_ACCESS_KEY` repository
+secret (used at build time) and in `.env` locally (`VITE_WEB3FORMS_ACCESS_KEY`).
+Until the key is configured the page shows a "form being set up" notice.
+
+## Deployment
+
+Pushes to `main` build and deploy to GitHub Pages (`.github/workflows/deploy.yml`).
+Tests and typecheck gate the deploy. The custom domain (rula.co.uk) is served via
+`public/CNAME`; old `.html` URLs redirect through stub pages in `public/`.
+
+See `ROADMAP.md` for what's planned next.

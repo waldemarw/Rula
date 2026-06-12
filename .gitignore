@@ -20,3 +20,10 @@ npm-debug.log*
 # Environment files
 .env
 .env.*
+
+# Build output
+dist/
+.vite-ssg-temp/
+
+# Claude Code local settings
+.claude/settings.local.json
