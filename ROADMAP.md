@@ -19,13 +19,17 @@ Done (on the `vue-rewrite` branch):
       for the old `.html` URLs
 - [x] CI: tests + typecheck gate the GitHub Pages deploy
 
-Remaining before merge to `main`:
+Launch (completed 2026-06-12):
 
-- [ ] Create a Web3Forms access key (free) → repo secret `WEB3FORMS_ACCESS_KEY`
-- [ ] Click through all three assessment variants once by hand (esp. both-sides)
-- [ ] Check the print/PDF output of the results page in a couple of browsers
-- [ ] Merge `vue-rewrite` → `main` (deploy workflow takes over from there)
-- [ ] After deploy: spot-check rula.co.uk, old URLs redirect, dark mode, mobile
+- [x] Web3Forms access key created → repo secret `WEB3FORMS_ACCESS_KEY`
+- [x] All three assessment variants verified by hand
+- [x] Print/PDF output checked
+- [x] Merged `vue-rewrite` → `main`; first Pages deploy succeeded
+- [x] Post-deploy spot-checks: new site live at rula.co.uk, old URLs redirect
+      with canonicals, sitemap serving, no Osmond references in output
+
+Remaining:
+
 - [ ] Resubmit sitemap in Google Search Console; watch coverage for a week
 
 ## Phase 2 — Polish (next)
@@ -72,3 +76,7 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
   the reference for any "how did it behave before?" question. Never edit it.
 - **URL scheme changed** (`/assessment.html` → `/assessment/right` etc.) with
   meta-refresh + canonical redirect stubs; domain authority carries the rest.
+- **Dark mode defaults to the system preference** (`prefers-color-scheme`), with
+  the toggle's explicit choice persisted as an override — the standard
+  three-state pattern. A light-only default was considered and rejected
+  (2026-06-12): OS-level preference is the user's stated choice.
