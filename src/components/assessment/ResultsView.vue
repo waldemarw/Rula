@@ -115,7 +115,8 @@ function startAgain() {
       <div class="summary-list">
         <div v-for="entry in answerSummary" :key="entry.step.id" class="summary-item">
           <span v-if="entry.selected?.image" class="summary-item__img">
-            <img :src="entry.selected.image" :alt="entry.selected.imageAlt ?? entry.selected.label" loading="lazy" />
+            <!-- Eager: lazy images can be missing from the printed PDF in some browsers. -->
+            <img :src="entry.selected.image" :alt="entry.selected.imageAlt ?? entry.selected.label" />
           </span>
           <span v-else class="summary-item__img muted">{{ entry.selected?.label }}</span>
           <div>

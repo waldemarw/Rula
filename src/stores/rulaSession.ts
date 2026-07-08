@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import type { ChoiceOption, FlowStep, QuestionStep } from '@/assessments/types'
 import {
@@ -49,6 +49,88 @@ export interface BodyLiveScores {
 
 function emptyDetails(): PersonalDetails {
   return { email: '', assessee: '', assessor: '', department: '', company: '', date: '' }
+}
+
+/** Snapshot of an in-progress session in localStorage (key naming follows `rula-theme`). */
+interface PersistedSession {
+  version: number
+  savedAt: number
+  mode: RulaMode
+  stepIndex: number
+  selections: Record<string, string>
+  flags: Record<string, boolean>
+  details: PersonalDetails
+}
+
+const STORAGE_KEY = 'rula-session'
+const STORAGE_VERSION = 1
+/** Saves older than this are dropped on load rather than restored. */
+const MAX_SESSION_AGE_MS = 24 * 60 * 60 * 1000
+const RULA_MODES: readonly RulaMode[] = ['right', 'left', 'both']
+
+/** localStorage when usable; null during SSG prerender or if storage is blocked. */
+function browserStorage(): Storage | null {
+  try {
+    return typeof localStorage === 'undefined' ? null : localStorage
+  } catch {
+    return null
+  }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/** Keep only the known string fields of a parsed details object. */
+function sanitizeDetails(value: unknown): PersonalDetails {
+  const details = emptyDetails()
+  if (!isRecord(value)) return details
+  for (const key of Object.keys(details) as (keyof PersonalDetails)[]) {
+    const field = value[key]
+    if (typeof field === 'string') details[key] = field
+  }
+  return details
+}
+
+/** Read and validate the saved session, discarding anything stale or malformed. */
+function readSavedSession(): PersistedSession | null {
+  const storage = browserStorage()
+  if (!storage) return null
+  try {
+    const raw = storage.getItem(STORAGE_KEY)
+    if (raw === null) return null
+    const parsed: unknown = JSON.parse(raw)
+    if (
+      isRecord(parsed) &&
+      parsed.version === STORAGE_VERSION &&
+      typeof parsed.savedAt === 'number' &&
+      Date.now() - parsed.savedAt <= MAX_SESSION_AGE_MS &&
+      RULA_MODES.includes(parsed.mode as RulaMode) &&
+      typeof parsed.stepIndex === 'number' &&
+      Number.isInteger(parsed.stepIndex) &&
+      parsed.stepIndex >= 0 &&
+      isRecord(parsed.selections) &&
+      isRecord(parsed.flags)
+    ) {
+      return {
+        version: STORAGE_VERSION,
+        savedAt: parsed.savedAt,
+        mode: parsed.mode as RulaMode,
+        stepIndex: parsed.stepIndex,
+        selections: parsed.selections as Record<string, string>,
+        flags: parsed.flags as Record<string, boolean>,
+        details: sanitizeDetails(parsed.details),
+      }
+    }
+  } catch {
+    /* corrupt JSON — treated the same as a failed validation */
+  }
+  try {
+    storage.removeItem(STORAGE_KEY)
+  } catch {
+    /* ignore */
+  }
+  return null
 }
 
 export const useRulaSession = defineStore('rulaSession', () => {
@@ -250,6 +332,85 @@ export const useRulaSession = defineStore('rulaSession', () => {
     if (index >= 0 && index <= maxReachableIndex.value) stepIndex.value = index
   }
 
+  // Persistence: an accidental refresh must not lose an in-progress session.
+
+  /** Read once at store creation, before any state change can overwrite the save. */
+  let savedSession = readSavedSession()
+
+  /** True while nothing has been answered, ticked or typed. */
+  function isPristine(): boolean {
+    return (
+      stepIndex.value === 0 &&
+      Object.keys(selections.value).length === 0 &&
+      Object.values(flags.value).every((on) => !on) &&
+      Object.values(details.value).every((field) => field === '')
+    )
+  }
+
+  function persist() {
+    const storage = browserStorage()
+    if (!storage) return
+    try {
+      if (isPristine()) {
+        storage.removeItem(STORAGE_KEY)
+        return
+      }
+      const snapshot: PersistedSession = {
+        version: STORAGE_VERSION,
+        savedAt: Date.now(),
+        mode: mode.value,
+        stepIndex: stepIndex.value,
+        selections: selections.value,
+        flags: flags.value,
+        details: details.value,
+      }
+      storage.setItem(STORAGE_KEY, JSON.stringify(snapshot))
+    } catch {
+      /* quota exceeded / private browsing — persistence is best-effort */
+    }
+  }
+
+  watch([mode, stepIndex, selections, flags, details], persist, { deep: true })
+
+  /**
+   * Apply the saved session to a pristine store of the same mode. The
+   * assessment page calls this after hydration, so prerendered HTML never
+   * mismatches. Answers whose step/option ids no longer exist are dropped and
+   * the step index is clamped, so a deploy between visits cannot break the flow.
+   */
+  function restore(): boolean {
+    if (!savedSession || savedSession.mode !== mode.value || !isPristine()) return false
+
+    const restoredSelections: Record<string, string> = {}
+    for (const [stepId, optionId] of Object.entries(savedSession.selections)) {
+      const step = stepsById.value.get(stepId)
+      if (step?.options.some((option) => option.id === optionId)) {
+        restoredSelections[stepId] = optionId
+      }
+    }
+    const knownFlagIds = new Set(
+      questionSteps.value.flatMap((step) => step.adjustments?.options.map((o) => o.id) ?? []),
+    )
+    const restoredFlags: Record<string, boolean> = {}
+    for (const [flagId, on] of Object.entries(savedSession.flags)) {
+      if (on === true && knownFlagIds.has(flagId)) restoredFlags[flagId] = true
+    }
+
+    const hasAnswers = Object.keys(restoredSelections).length > 0
+    const hasDetails = Object.values(savedSession.details).some((field) => field !== '')
+    if (!hasAnswers && !hasDetails) {
+      savedSession = null
+      return false
+    }
+
+    selections.value = restoredSelections
+    flags.value = restoredFlags
+    details.value = savedSession.details
+    stepIndex.value = Math.min(savedSession.stepIndex, maxReachableIndex.value)
+    savedSession = null
+    return true
+  }
+
   return {
     mode,
     stepIndex,
@@ -278,5 +439,6 @@ export const useRulaSession = defineStore('rulaSession', () => {
     next,
     back,
     goTo,
+    restore,
   }
 })

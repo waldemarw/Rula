@@ -28,18 +28,27 @@ Launch (completed 2026-06-12):
 - [x] Post-deploy spot-checks: new site live at rula.co.uk, old URLs redirect
       with canonicals, sitemap serving, no Osmond references in output
 
-Remaining:
+- [x] Sitemap resubmitted in Google Search Console (2026-07-08)
 
-- [ ] Resubmit sitemap in Google Search Console; watch coverage for a week
+Phase 1 complete.
 
 ## Phase 2 — Polish (next)
 
-- [ ] Persist in-progress sessions to localStorage (survive accidental refresh)
-- [ ] Nicer PDF: dedicated print layout — or evaluate client-side pdf generation
-      if print quality disappoints (legacy used html2pdf.js)
-- [ ] Lighthouse pass (image sizes — posture JPGs could be WebP; preload fonts)
-- [ ] Optimise/prune unused legacy media in `public/media` (summary/* is unused)
-- [ ] A11y pass: keyboard-only run-through, screen reader labels on option cards
+- [x] Persist in-progress sessions to localStorage (survive accidental refresh) —
+      restored after reload with a "welcome back / start afresh" notice; 24h TTL,
+      versioned key `rula-session`, stale ids dropped, 14 tests (2026-07-08)
+- [x] Print output reviewed: instructional intro no longer prints, summary images
+      load eagerly so PDFs are never missing posture pictures (2026-07-08).
+      Verdict on whether print quality "disappoints" (→ html2pdf.js) stays open
+      until checked on paper/PDF by a human
+- [x] Posture images converted to WebP (580K → 212K, cwebp q75) and Lato 400/700
+      woff2 preloaded in the prerendered head (2026-07-08)
+- [x] Pruned unused legacy media: summary/*, soc-med, icons, arrows, old logos and
+      the stray Osmond svg/ico — nothing in the deployed output references Osmond
+      (2026-07-08)
+- [x] A11y pass: option cards were already labelled native radios with visible
+      focus (kept); step chips gained descriptive aria-labels incl. answered
+      state; keyboard flow verified in-browser (2026-07-08)
 
 ## Phase 3 — Backend & accounts (later)
 
@@ -80,3 +89,10 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
   the toggle's explicit choice persisted as an override — the standard
   three-state pattern. A light-only default was considered and rejected
   (2026-06-12): OS-level preference is the user's stated choice.
+- **Session persistence is store-internal, not a Pinia plugin** (2026-07-08):
+  the save is read once at store creation (before any state change can clobber
+  it) and applied by `restore()` from the page's `onMounted`, so prerendered
+  HTML never hydration-mismatches. Key `rula-session` (naming follows
+  `rula-theme`), versioned payload, 24 h TTL, stale step/option ids dropped and
+  the step index clamped. Switching assessment mode still discards progress —
+  persistence mirrors the existing in-memory semantics rather than changing them.

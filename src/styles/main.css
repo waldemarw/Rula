@@ -432,6 +432,36 @@ img {
   margin-bottom: 4px;
 }
 
+.assessment-intro {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+/* "Answers restored" notice */
+.restore-note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  font-size: 14px;
+}
+
+.restore-note__reset {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* Step navigation chips */
 .step-nav {
   display: flex;
@@ -886,6 +916,8 @@ img {
   .site-header,
   .site-footer,
   .step-nav,
+  .restore-note,
+  .assessment-intro,
   .controls,
   .score-aside,
   .results-actions,

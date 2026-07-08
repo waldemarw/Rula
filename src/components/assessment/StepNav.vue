@@ -17,6 +17,14 @@ function chipClass(index: number) {
     'is-done': step.kind === 'question' && session.isAnswered(step.id),
   }
 }
+
+/** Full announcement for screen readers; the visible chip only shows a glyph. */
+function chipAria(index: number): string {
+  const step = session.flow[index]
+  if (step.kind !== 'question') return step.title
+  const state = session.isAnswered(step.id) ? ' (answered)' : ''
+  return `Step ${index + 1}: ${step.title}${state}`
+}
 </script>
 
 <template>
@@ -29,6 +37,7 @@ function chipClass(index: number) {
       :class="chipClass(index)"
       :disabled="index > session.maxReachableIndex"
       :title="step.title"
+      :aria-label="chipAria(index)"
       :aria-current="index === session.stepIndex ? 'step' : undefined"
       @click="session.goTo(index)"
     >

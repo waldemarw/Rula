@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { useRulaSession } from '@/stores/rulaSession'
@@ -26,6 +26,18 @@ watch(
     if (typeof window !== 'undefined') window.scrollTo({ top: 0 })
   },
 )
+
+/** Set when a previous visit's answers were restored from localStorage. */
+const restored = ref(false)
+
+onMounted(() => {
+  restored.value = session.restore()
+})
+
+function startAfresh() {
+  session.reset()
+  restored.value = false
+}
 
 const current = computed(() => session.currentStep)
 const questionNumber = computed(() => session.stepIndex + 1)
@@ -54,9 +66,14 @@ useHead({
   <div class="container assessment-layout">
     <section class="card assessment-card">
       <h1>{{ variant.name }}</h1>
-      <p class="muted" style="font-size: 14px; margin-bottom: 0">
+      <p class="muted assessment-intro">
         Select the posture that most accurately reflects the working position at each step. You
         can revisit any completed step by clicking its number.
+      </p>
+
+      <p v-if="restored" class="restore-note" role="status">
+        <span>Welcome back — we restored your answers from last time.</span>
+        <button type="button" class="restore-note__reset" @click="startAfresh">Start afresh</button>
       </p>
 
       <StepNav />
