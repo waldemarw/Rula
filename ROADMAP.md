@@ -73,8 +73,13 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
 
 - More assessments via `src/assessments/` registry: **REBA** (whole body) is the
   obvious sibling; ROSA (office), NIOSH lifting equation
-- Content/SEO: short guides ("what is a good RULA score?", "RULA vs REBA") —
-  organic search is the existing asset to build on
+- Content/SEO: short guides — organic search is the existing asset to build on.
+  GSC data (2026-07-08) confirmed the gaps: worksheet/sheet/pdf queries ranked
+  16–20 with no page, "rula vs reba" ranked ~50, "rula score" 6.8.
+  - [x] `/rula-worksheet` — PDF download + step-by-step hand-scoring guide,
+        linked from footer and About, in sitemap (2026-07-08)
+  - [ ] "RULA vs REBA" comparison page (also seeds a future REBA tool)
+  - [ ] "What is a good RULA score?" guide (score/scoring/action-level queries)
 - Monetisation candidates, roughly in order of fit:
   1. Free single assessments; paid accounts for history/team features
   2. Pro PDF reports (logo, multiple assessments, trends) for consultants

@@ -4,6 +4,7 @@
       <nav aria-label="Footer">
         <RouterLink to="/">Assessments</RouterLink>
         <RouterLink to="/about">About RULA</RouterLink>
+        <RouterLink to="/rula-worksheet">RULA worksheet</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink to="/contact?topic=feedback">Give feedback</RouterLink>
       </nav>

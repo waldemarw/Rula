@@ -25,6 +25,11 @@ export const routes: RouteRecordRaw[] = [
     meta: { mode: 'both' },
   },
   {
+    path: '/rula-worksheet',
+    name: 'rula-worksheet',
+    component: () => import('@/pages/WorksheetPage.vue'),
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/pages/AboutPage.vue'),

@@ -53,8 +53,8 @@ useHead({
     <h2>How do I score?</h2>
     <p>
       Use the <RouterLink to="/">online assessment</RouterLink> for instant scoring, or
-      <a href="/media/RULASheet.pdf" target="_blank" rel="noopener">download the manual scoring
-      sheet (PDF)</a> to score by hand using the original tables.
+      <RouterLink to="/rula-worksheet">download the manual scoring worksheet (PDF)</RouterLink>
+      to score by hand using the original tables.
     </p>
 
     <h2>Reference</h2>
