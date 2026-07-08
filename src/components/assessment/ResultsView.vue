@@ -101,6 +101,15 @@ function startAgain() {
       </RouterLink>
     </div>
 
+    <aside class="feedback-prompt">
+      <h3>Was this tool useful?</h3>
+      <p>
+        rula.co.uk is free and shaped by the people who use it. If something helped, tripped you
+        up, or is missing — <RouterLink to="/contact?topic=feedback">send a quick note</RouterLink>.
+        Every message gets read.
+      </p>
+    </aside>
+
     <section v-if="detailRows.length">
       <h3>Personal details</h3>
       <div class="subscore-grid">

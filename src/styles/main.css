@@ -579,7 +579,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 120px;
+  /* Tall enough for max-height images + padding, so nothing shifts on load (CLS). */
+  min-height: 142px;
   padding: 6px;
 }
 
@@ -784,6 +785,27 @@ img {
   margin-right: 6px;
 }
 
+/* Post-results feedback nudge */
+.feedback-prompt {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+
+.feedback-prompt h3 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.feedback-prompt p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
 /* Answer summary */
 .summary-list {
   display: grid;
@@ -918,6 +940,7 @@ img {
   .step-nav,
   .restore-note,
   .assessment-intro,
+  .feedback-prompt,
   .controls,
   .score-aside,
   .results-actions,

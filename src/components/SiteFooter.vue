@@ -5,6 +5,7 @@
         <RouterLink to="/">Assessments</RouterLink>
         <RouterLink to="/about">About RULA</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
+        <RouterLink to="/contact?topic=feedback">Give feedback</RouterLink>
       </nav>
       <p>
         RULA scores a snapshot of working posture as part of a rapid screening process. Refer to

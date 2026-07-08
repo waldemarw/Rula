@@ -50,6 +50,15 @@ Phase 1 complete.
       focus (kept); step chips gained descriptive aria-labels incl. answered
       state; keyboard flow verified in-browser (2026-07-08)
 
+Post-launch extras (2026-07-08):
+
+- [x] Feedback prompting: "Was this tool useful?" nudge on the results page,
+      "Give feedback" footer link, and `/contact?topic=feedback` deep-link that
+      tailors the copy and tags the Web3Forms subject with "feedback" so
+      prompt-driven messages are measurable in the inbox
+- [x] CLS fix from Cloudflare RUM data: option-card image boxes now reserve the
+      full image height (142px) so cards don't shift as posture images load
+
 ## Phase 3 — Backend & accounts (later)
 
 Pure-TS engine is deliberately framework-free so it can run server-side.

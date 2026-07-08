@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
+import { useRoute } from 'vue-router'
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { SITE_URL } from '@/config'
 
@@ -8,6 +9,14 @@ const configured = Boolean(accessKey)
 
 const form = reactive({ name: '', email: '', message: '', botcheck: '' })
 const status = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+const route = useRoute()
+/** Set after mount: the prerendered page has no query string, so swapping copy
+    any earlier would mismatch hydration. */
+const isFeedback = ref(false)
+onMounted(() => {
+  isFeedback.value = route.query.topic === 'feedback'
+})
 
 async function submit() {
   if (form.botcheck) return // honeypot tripped — silently drop
@@ -18,7 +27,7 @@ async function submit() {
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         access_key: accessKey,
-        subject: `rula.co.uk — message from ${form.name}`,
+        subject: `rula.co.uk — ${isFeedback.value ? 'feedback' : 'message'} from ${form.name}`,
         name: form.name,
         email: form.email,
         message: form.message,
@@ -46,7 +55,11 @@ useHead({
 <template>
   <div class="container page">
     <h1>Contact</h1>
-    <p class="muted">
+    <p v-if="isFeedback" class="muted">
+      Thanks for taking a moment — feedback from real use is what shapes this tool. What worked,
+      what tripped you up, what's missing? A sentence or two is plenty.
+    </p>
+    <p v-else class="muted">
       Questions, feedback, or an idea for the site? Send a message and I'll get back to you by
       email.
     </p>
@@ -73,7 +86,14 @@ useHead({
       </div>
       <div class="field">
         <label for="contact-message">Message</label>
-        <textarea id="contact-message" v-model="form.message" required rows="6" maxlength="4000"></textarea>
+        <textarea
+          id="contact-message"
+          v-model="form.message"
+          required
+          rows="6"
+          maxlength="4000"
+          :placeholder="isFeedback ? 'What would make this tool more useful for you?' : undefined"
+        ></textarea>
       </div>
       <!-- honeypot, hidden from real users -->
       <input
