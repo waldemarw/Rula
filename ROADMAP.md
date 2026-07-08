@@ -78,8 +78,11 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
   16–20 with no page, "rula vs reba" ranked ~50, "rula score" 6.8.
   - [x] `/rula-worksheet` — PDF download + step-by-step hand-scoring guide,
         linked from footer and About, in sitemap (2026-07-08)
-  - [ ] "RULA vs REBA" comparison page (also seeds a future REBA tool)
-  - [ ] "What is a good RULA score?" guide (score/scoring/action-level queries)
+  - [x] `/rula-vs-reba` — comparison table + when-to-use guidance, seeds a
+        future REBA tool (2026-07-08)
+  - [x] `/rula-scores` — "What is a good RULA score?" guide: action levels,
+        score anatomy, how to reduce a score; linked from the results page
+        action-level key (2026-07-08)
 - Monetisation candidates, roughly in order of fit:
   1. Free single assessments; paid accounts for history/team features
   2. Pro PDF reports (logo, multiple assessments, trends) for consultants

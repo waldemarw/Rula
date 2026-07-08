@@ -30,6 +30,16 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/WorksheetPage.vue'),
   },
   {
+    path: '/rula-vs-reba',
+    name: 'rula-vs-reba',
+    component: () => import('@/pages/RulaVsRebaPage.vue'),
+  },
+  {
+    path: '/rula-scores',
+    name: 'rula-scores',
+    component: () => import('@/pages/RulaScoresPage.vue'),
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/pages/AboutPage.vue'),

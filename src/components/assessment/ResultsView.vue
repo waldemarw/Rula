@@ -69,6 +69,11 @@ function startAgain() {
       <span><span class="dot" style="background: var(--al-4)"></span>Score 7 · Action level 4 — investigation and changes required immediately</span>
     </div>
 
+    <p class="muted score-guide-link">
+      <RouterLink to="/rula-scores">What do these action levels mean?</RouterLink> ·
+      <RouterLink to="/rula-vs-reba">RULA vs REBA</RouterLink>
+    </p>
+
     <h3>Score breakdown</h3>
     <template v-for="side in scoredSides" :key="`break-${side}`">
       <h4 v-if="session.mode === 'both'" class="muted">{{ sideHeadings[side] }}</h4>
