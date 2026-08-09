@@ -69,26 +69,75 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
 - [ ] Server-rendered/branded PDF reports
 - [ ] The contact form can move from Web3Forms to a Worker at that point
 
-## Phase 4 — Growth & monetisation ideas (not committed)
+## Phase 4 — Growth & monetisation
 
-- More assessments via `src/assessments/` registry: **REBA** (whole body) is the
-  obvious sibling; ROSA (office), NIOSH lifting equation
-- Content/SEO: short guides — organic search is the existing asset to build on.
-  GSC data (2026-07-08) confirmed the gaps: worksheet/sheet/pdf queries ranked
-  16–20 with no page, "rula vs reba" ranked ~50, "rula score" 6.8.
-  - [x] `/rula-worksheet` — PDF download + step-by-step hand-scoring guide,
-        linked from footer and About, in sitemap (2026-07-08)
-  - [x] `/rula-vs-reba` — comparison table + when-to-use guidance, seeds a
-        future REBA tool (2026-07-08)
-  - [x] `/rula-scores` — "What is a good RULA score?" guide: action levels,
-        score anatomy, how to reduce a score; linked from the results page
-        action-level key (2026-07-08)
-- Monetisation candidates, roughly in order of fit:
-  1. Free single assessments; paid accounts for history/team features
-  2. Pro PDF reports (logo, multiple assessments, trends) for consultants
-  3. Team/organisation dashboards (assessor seats)
-  4. API access for integration into H&S tooling
-  5. (Last resort: ads — would cheapen a health tool)
+Analysis done 2026-08-09 against the GSC export (2026-06-11 → 2026-08-07) and 30
+days of Cloudflare data. **Verdict: the £30/yr domain cost is reachable, but every
+route lands in the same £20–50/yr band, so the choice is about cost and character,
+not revenue.** Traffic has to grow ~8–15× before anything paid is worth building.
+
+What the data says:
+
+- **The audience mostly cannot pay.** Traffic is predominantly students and
+  academics in Mexico, Brazil, Indonesia, Thailand, India, Turkey. Real queries in
+  the export: `yg geratis`, `apakah ini gratis`, `quero grátis`, `gratuit`,
+  `無料でできる？`, `any free app`, `ergonomics software download free`.
+- **~a quarter of impressions are brand collision.** US: 4,843 impressions at
+  0.33% CTR, driven by `rula therapists`, `does rula accept medi-cal`,
+  `rula.com login` — that is Rula Health (rula.com), a funded US telehealth firm.
+  Not winnable. Discount US impressions in any projection.
+- **The addressable slice is ~20–25 professional visits/month** (UK/US/AU/DE/CA/IE
+  clicks, minus the student share). That is the whole paid market today.
+- **Zero feedback replies was the expected outcome**, not a verdict on the tool:
+  ~3,700 visits against an "email a stranger" ask converts well under 0.1%.
+- Traffic dipped June→August (10.3 → 7.1 clicks/day). Read as academic
+  seasonality; re-check in November before drawing conclusions.
+
+Decided sequence:
+
+1. **Free wins (done 2026-08-09)** — see below.
+2. **REBA as a second free assessment** — the registry was built for it, and the
+   site already draws ~200 impressions/58d on `rula reba` / `reba calculator free`
+   at positions 21–34 with no REBA tool at all. Largest single growth lever.
+3. **Re-measure in November**, then decide on paid extras. If built: quick
+   assessment + score + basic PDF stay free forever; charge only for a branded
+   multi-workstation report and saved history — the same line Ergoniza
+   (UPV) draws. Must go through a merchant of record (Lemon Squeezy/Paddle):
+   a UK seller owes destination VAT on the *first* EU consumer sale, no threshold.
+4. **Single sponsor credit** — plausible at £100–250/yr once traffic is 5–10×;
+   unsellable now.
+
+Content/SEO pages (organic search is the existing asset):
+
+- [x] `/rula-worksheet` — PDF download + step-by-step hand-scoring guide (2026-07-08)
+- [x] `/rula-vs-reba` — comparison table + when-to-use guidance (2026-07-08)
+- [x] `/rula-scores` — action levels, score anatomy, how to reduce a score (2026-07-08)
+- [x] `/rula-citation` — APA/Harvard/Vancouver/MLA/BibTeX/RIS + DOI, one-click copy.
+      Targets ~220 impressions/58d of citation queries that converted almost
+      nothing (2026-08-09)
+
+Free wins shipped 2026-08-09:
+
+- [x] **Canonical/trailing-slash fix.** `dirStyle: 'nested'` means Pages serves
+      `/rula-worksheet/` and 301s the slash-less form, but every canonical, ogUrl
+      and JSON-LD url pointed at the redirecting URL — so Google indexed both and
+      split the signals (`/rula-worksheet` 836 impressions *and* `/rula-worksheet/`
+      254; same for both assessment sides). New `canonicalUrl()` in `src/config.ts`
+      is the single source of the slash rule, covered by `tests/canonical-url.spec.ts`.
+      Sitemap and the four `public/*.html` redirect stubs updated to match.
+- [x] **Retargeted titles/descriptions** on the three content pages, which were
+      pulling 3,072 impressions for 16 clicks. Treated as an experiment — read the
+      before/after CTR in GSC around late September. Before:
+      `/rula-scores` 0.22% @ 5.84 · `/rula-vs-reba` 0.67% @ 9.35 ·
+      `/rula-worksheet` 0.60% @ 5.84.
+- [x] **One-click feedback** on the results page replaces the "go to the contact
+      page and write a message" ask. Two buttons, optional one-line note, posted
+      via the existing Web3Forms key (free tier: 250/month, ample here). Sends the
+      verdict and note only — no answers, no score, no personal details — so the
+      details-step privacy promise stays true without qualification.
+- [x] **Tip jar, dormant.** `SUPPORT_URL` in `src/config.ts` is empty, so nothing
+      asking for money renders. Set it to a Ko-fi URL to switch on a footer link
+      and a quiet line on the results page (after the score, never before).
 
 ## Decisions log
 
@@ -106,6 +155,17 @@ Pure-TS engine is deliberately framework-free so it can run server-side.
   the toggle's explicit choice persisted as an override — the standard
   three-state pattern. A light-only default was considered and rejected
   (2026-06-12): OS-level preference is the user's stated choice.
+- **No display ads** (2026-08-09): they would clear the £30/yr bar — an estimated
+  £20–45/yr on this country mix — but the cost is wrong. AdSense means a GDPR
+  consent banner on a site that currently sets no cookies at all (Cloudflare Web
+  Analytics is cookieless), which also undoes the CLS work; the $100 payout
+  threshold is ~2 years away at that rate; and approval is doubtful on ~9 thin
+  pages. A tip jar earns the same order of money for none of that. Affiliate links
+  were rejected too: 3% on furniture needs ~£1,000 of tracked sales for £30, and
+  the audience is assessing other people's workstations, not buying chairs.
+- **Canonicals carry a trailing slash** (2026-08-09): the served form wins.
+  `canonicalUrl()` is the only place that knows the rule, so new pages inherit it;
+  `routes.ts` keeps slash-less paths because vue-router handles both client-side.
 - **Session persistence is store-internal, not a Pinia plugin** (2026-07-08):
   the save is read once at store creation (before any state change can clobber
   it) and applied by `restore()` from the page's `onMounted`, so prerendered

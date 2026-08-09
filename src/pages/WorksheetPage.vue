@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 
 useSeoMeta({
-  title: 'RULA Worksheet — Free PDF Download | Score RULA by Hand',
+  title: 'RULA Worksheet PDF — Free Download & Scoring Guide',
   description:
-    'Download the original RULA employee assessment worksheet as a free PDF and learn how to score it step by step — or skip the manual table lookups with the free online RULA tool.',
-  ogTitle: 'RULA Worksheet — Free PDF Download',
+    'Download the RULA employee assessment worksheet as a free PDF, with a step-by-step guide to scoring it by hand. Looking for the RULA Excel spreadsheet? The free online tool does the same table lookups for you.',
+  ogTitle: 'RULA Worksheet PDF — free download',
   ogDescription:
     'The original RULA scoring worksheet as a free PDF, with a step-by-step guide to completing it by hand.',
   ogType: 'article',
-  ogUrl: `${SITE_URL}/rula-worksheet`,
+  ogUrl: canonicalUrl('/rula-worksheet'),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/rula-worksheet` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/rula-worksheet') }],
   script: [
     {
       type: 'application/ld+json',
@@ -24,7 +24,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: 'RULA worksheet: free PDF download and how to score it by hand',
-        url: `${SITE_URL}/rula-worksheet`,
+        url: canonicalUrl('/rula-worksheet'),
         about:
           'The Rapid Upper Limb Assessment (RULA) paper scoring worksheet, based on McAtamney & Corlett (1993).',
       }),
@@ -108,7 +108,9 @@ useHead({
     <p class="muted">
       McAtamney, L. and Corlett, E.N. "RULA: a survey method for the investigation of
       work-related upper limb disorders." <em>Applied Ergonomics</em> 1993, 24(2), 91–99. Always
-      refer to the original methodology to check the correct use of the scores.
+      refer to the original methodology to check the correct use of the scores. Writing this up?
+      <RouterLink to="/rula-citation">Copy the reference</RouterLink> in APA, Harvard, Vancouver,
+      BibTeX or RIS.
     </p>
   </div>
 </template>

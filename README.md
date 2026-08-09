@@ -25,6 +25,20 @@ Vitest · deployed to GitHub Pages via Actions.
 | `npm run build`     | Static-generate the site into `dist/`        |
 | `npm run preview`   | Serve the built `dist/`                      |
 
+**Node 22.12 or newer is required for `npm run build`** — vite-ssg's prerender pulls in
+a dependency that `require()`s an ES module, which older Node refuses. Dev, tests and
+typecheck are all fine on Node 20; only the build fails, and it fails loudly.
+
+## URLs and canonicals
+
+vite-ssg builds with `dirStyle: 'nested'`, so every route is emitted as
+`<route>/index.html` and GitHub Pages 301s the slash-less URL to the slash form.
+Canonicals, `og:url` and JSON-LD `url` must therefore end in a slash — build them with
+`canonicalUrl()` from `src/config.ts` rather than interpolating `SITE_URL` by hand, and
+add new routes to `public/sitemap.xml` in the same form. `tests/canonical-url.spec.ts`
+enforces this. Getting it wrong makes Google index both forms and split the ranking
+signals between them.
+
 ## Architecture
 
 - `src/assessments/` — the assessment framework. Each tool lives in its own folder

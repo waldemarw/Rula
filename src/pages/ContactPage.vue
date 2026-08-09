@@ -2,13 +2,13 @@
 import { onMounted, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { SITE_URL } from '@/config'
+import { canonicalUrl } from '@/config'
+import { useWeb3Forms, web3FormsConfigured } from '@/composables/useWeb3Forms'
 
-const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
-const configured = Boolean(accessKey)
+const configured = web3FormsConfigured
 
 const form = reactive({ name: '', email: '', message: '', botcheck: '' })
-const status = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
+const { status, send } = useWeb3Forms()
 
 const route = useRoute()
 /** Set after mount: the prerendered page has no query string, so swapping copy
@@ -18,37 +18,25 @@ onMounted(() => {
   isFeedback.value = route.query.topic === 'feedback'
 })
 
-async function submit() {
-  if (form.botcheck) return // honeypot tripped — silently drop
-  status.value = 'sending'
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `rula.co.uk — ${isFeedback.value ? 'feedback' : 'message'} from ${form.name}`,
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      }),
-    })
-    const data = await response.json()
-    status.value = data.success ? 'sent' : 'error'
-  } catch {
-    status.value = 'error'
-  }
+function submit() {
+  return send({
+    subject: `rula.co.uk — ${isFeedback.value ? 'feedback' : 'message'} from ${form.name}`,
+    message: form.message,
+    name: form.name,
+    email: form.email,
+    botcheck: form.botcheck,
+  })
 }
 
 useSeoMeta({
   title: 'Contact | RULA — Rapid Upper Limb Assessment',
   description:
     'Get in touch about the free online RULA assessment tool — questions, feedback or suggestions.',
-  ogUrl: `${SITE_URL}/contact`,
+  ogUrl: canonicalUrl('/contact'),
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/contact` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/contact') }],
 })
 </script>
 

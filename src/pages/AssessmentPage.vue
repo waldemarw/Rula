@@ -5,7 +5,7 @@ import { useHead, useSeoMeta } from '@unhead/vue'
 import { useRulaSession } from '@/stores/rulaSession'
 import { rulaAssessment } from '@/assessments/rula'
 import type { RulaMode } from '@/assessments/rula'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 import StepNav from '@/components/assessment/StepNav.vue'
 import QuestionStepCard from '@/components/assessment/QuestionStepCard.vue'
 import DetailsStepCard from '@/components/assessment/DetailsStepCard.vue'
@@ -52,13 +52,13 @@ useSeoMeta({
   ogTitle: () => variant.value.name,
   ogDescription: () => variant.value.description,
   ogType: 'website',
-  ogUrl: () => `${SITE_URL}${variant.value.path}`,
+  ogUrl: () => canonicalUrl(variant.value.path),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: () => `${SITE_URL}${variant.value.path}` }],
+  link: [{ rel: 'canonical', href: () => canonicalUrl(variant.value.path) }],
 })
 </script>
 

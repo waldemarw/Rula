@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 
 useSeoMeta({
   title: 'What is RULA? | About Rapid Upper Limb Assessment',
@@ -10,13 +10,13 @@ useSeoMeta({
   ogDescription:
     'Learn about the Rapid Upper Limb Assessment survey method developed by McAtamney and Corlett to investigate work-related upper limb disorders.',
   ogType: 'article',
-  ogUrl: `${SITE_URL}/about`,
+  ogUrl: canonicalUrl('/about'),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/about` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/about') }],
 })
 </script>
 
@@ -61,6 +61,8 @@ useHead({
     <p class="muted">
       McAtamney, L. and Corlett, E.N. "RULA: a survey method for the investigation of
       work-related upper limb disorders." <em>Applied Ergonomics</em> 1993, 24(2), 91–99.
+      <RouterLink to="/rula-citation">Copy this reference</RouterLink> in APA, Harvard,
+      Vancouver, BibTeX or RIS.
     </p>
   </div>
 </template>

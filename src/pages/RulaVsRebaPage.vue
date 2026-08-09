@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 
 useSeoMeta({
-  title: 'RULA vs REBA: Which Ergonomic Assessment Should You Use?',
+  title: 'RULA vs REBA — Differences, Scores & When to Use Each',
   description:
-    'RULA scores the neck, trunk and upper limbs (1–7); REBA scores the whole body including load handling (1–15). A practical comparison of the two methods and when to use each.',
-  ogTitle: 'RULA vs REBA: Which Ergonomic Assessment Should You Use?',
+    'RULA scores the neck, trunk and upper limbs on 1–7; REBA covers the whole body including load handling on 1–15. The practical differences between the two methods, and how to pick the right one.',
+  ogTitle: 'RULA vs REBA — differences and when to use each',
   ogDescription:
     'A practical comparison of the RULA and REBA observational assessment methods and when to use each.',
   ogType: 'article',
-  ogUrl: `${SITE_URL}/rula-vs-reba`,
+  ogUrl: canonicalUrl('/rula-vs-reba'),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/rula-vs-reba` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/rula-vs-reba') }],
   script: [
     {
       type: 'application/ld+json',
@@ -24,7 +24,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: 'RULA vs REBA: which ergonomic assessment should you use?',
-        url: `${SITE_URL}/rula-vs-reba`,
+        url: canonicalUrl('/rula-vs-reba'),
         about:
           'Comparison of the Rapid Upper Limb Assessment (McAtamney & Corlett, 1993) and the Rapid Entire Body Assessment (Hignett & McAtamney, 2000).',
       }),

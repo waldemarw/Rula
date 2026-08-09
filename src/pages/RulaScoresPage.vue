@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 
 useSeoMeta({
-  title: 'What Is a Good RULA Score? | Score Meanings & Action Levels',
+  title: 'RULA Scores Explained: What 1–7 Means & Action Levels',
   description:
-    'RULA scores run from 1 to 7. Scores of 1–2 are acceptable; 7 demands immediate change. What each score and action level means, why scores come out high, and how to bring them down.',
-  ogTitle: 'What is a good RULA score?',
+    'A RULA score of 1–2 is acceptable; 7 needs changing immediately. What every score on the 1–7 scale means, the four action levels, why scores come out high and how to bring them down.',
+  ogTitle: 'RULA scores explained: what 1–7 means',
   ogDescription:
     'What each RULA score and action level means, why scores come out high, and how to bring them down.',
   ogType: 'article',
-  ogUrl: `${SITE_URL}/rula-scores`,
+  ogUrl: canonicalUrl('/rula-scores'),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/rula-scores` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/rula-scores') }],
   script: [
     {
       type: 'application/ld+json',
@@ -24,7 +24,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: 'What is a good RULA score?',
-        url: `${SITE_URL}/rula-scores`,
+        url: canonicalUrl('/rula-scores'),
         about:
           'Interpretation of Rapid Upper Limb Assessment scores and action levels, based on McAtamney & Corlett (1993).',
       }),

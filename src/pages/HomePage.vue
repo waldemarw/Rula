@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useHead, useSeoMeta } from '@unhead/vue'
 import { assessments } from '@/assessments/registry'
-import { OG_IMAGE, SITE_URL } from '@/config'
+import { canonicalUrl, OG_IMAGE } from '@/config'
 
 const rula = assessments[0]
 
@@ -13,13 +13,13 @@ useSeoMeta({
   ogDescription:
     'A free online ergonomic screening tool that assesses biomechanical and postural loading on the whole body, with particular attention to the neck, trunk and upper limbs.',
   ogType: 'website',
-  ogUrl: `${SITE_URL}/`,
+  ogUrl: canonicalUrl('/'),
   ogImage: OG_IMAGE,
   twitterCard: 'summary',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: `${SITE_URL}/` }],
+  link: [{ rel: 'canonical', href: canonicalUrl('/') }],
   script: [
     {
       type: 'application/ld+json',
@@ -27,7 +27,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
         name: 'RULA — Rapid Upper Limb Assessment',
-        url: `${SITE_URL}/`,
+        url: canonicalUrl('/'),
         applicationCategory: 'HealthApplication',
         operatingSystem: 'Any (web-based)',
         description:

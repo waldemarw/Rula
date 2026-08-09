@@ -175,6 +175,12 @@ img {
   background: var(--surface-2);
 }
 
+.btn--sm {
+  padding: 5px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
 /* ─── Header / footer ────────────────────────────────────────────────── */
 
 .site-header {
@@ -806,6 +812,50 @@ img {
   color: var(--text-muted);
 }
 
+.feedback-prompt__hint {
+  margin-bottom: 10px !important;
+}
+
+.feedback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-note input {
+  flex: 1 1 220px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+}
+
+.feedback-note input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* Running-costs note — deliberately quiet, and never before the score */
+.support-note {
+  margin-block: 12px 28px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.support-note p {
+  margin: 0;
+}
+
 /* Answer summary */
 .summary-list {
   display: grid;
@@ -948,6 +998,74 @@ img {
   font-size: clamp(26px, 4vw, 34px);
 }
 
+/* ─── Citation page ──────────────────────────────────────────────────── */
+
+.cite-facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.cite-facts > div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+}
+
+.cite-facts dt {
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.cite-facts dd {
+  margin: 0;
+}
+
+.cite-block {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.cite-block__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.cite-block__head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.cite-block pre {
+  margin: 0;
+  padding: 12px;
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.cite-block code {
+  font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 520px) {
+  .cite-facts > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
 /* ─── Print (Save as PDF) ────────────────────────────────────────────── */
 
 @media print {
@@ -972,6 +1090,7 @@ img {
   .restore-note,
   .assessment-intro,
   .feedback-prompt,
+  .support-note,
   .score-guide-link,
   .controls,
   .score-aside,

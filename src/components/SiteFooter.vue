@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import { SUPPORT_URL } from '@/config'
+</script>
+
 <template>
   <footer class="site-footer">
     <div class="container site-footer__inner">
@@ -7,8 +11,12 @@
         <RouterLink to="/rula-worksheet">RULA worksheet</RouterLink>
         <RouterLink to="/rula-scores">RULA scores</RouterLink>
         <RouterLink to="/rula-vs-reba">RULA vs REBA</RouterLink>
+        <RouterLink to="/rula-citation">How to cite RULA</RouterLink>
         <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink to="/contact?topic=feedback">Give feedback</RouterLink>
+        <a v-if="SUPPORT_URL" :href="SUPPORT_URL" target="_blank" rel="noopener">
+          Support the site
+        </a>
       </nav>
       <p>
         RULA scores a snapshot of working posture as part of a rapid screening process. Refer to

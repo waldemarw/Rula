@@ -40,6 +40,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/RulaScoresPage.vue'),
   },
   {
+    path: '/rula-citation',
+    name: 'rula-citation',
+    component: () => import('@/pages/RulaCitationPage.vue'),
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/pages/AboutPage.vue'),
